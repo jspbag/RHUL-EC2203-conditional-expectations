@@ -1,0 +1,89 @@
+---
+pagetitle: Conditional expectations
+output: 
+  revealjs::revealjs_presentation:
+    incremental: false
+    theme: solarized
+    self_contained: false
+    # reveal_plugins: ["menu","notes","chalkboard"]
+    reveal_plugins: ["menu"]
+    highlight: pygments
+    center: true
+    transition: none
+    background_transition: none 
+    reveal_options:
+      # chalkboard:
+      #   theme: whiteboard
+      #   toggleNotesButton: true
+      #   toggleChalkboardButton: true
+      menu:
+        numbers: true
+      slideNumber: true
+      previewLinks: false
+    fig_caption: true
+    css: mystyle.css
+    
+--- 
+
+<section>
+
+<h1>Conditional expectations</h1>
+
+Based on Stock and Watson, ch. 2
+
+<br>
+
+<h2>[Jesper Bagger](mailto:jesper.bagger@rhul.ac.uk)</h2>
+
+<h3>EC2203 | Royal Holloway | 2020/21</h3>
+
+</section>
+
+# Conditional expectations
+
+## Relationships between random variables
+
+- We are often interested in relationships between two (or more) random variables, $X$ and $Y$
+
+  - We want to learn the effect of $X$ on $Y$. 
+  
+  - We want to predict $Y$ based on observations on $X$
+
+- In both cases, the **expected value of $Y$ conditional on $X$** turns out to be a very useful object
+
+## Conditional expectation
+
+- The **conditional expectation** of $Y$ given $X$ takes the value $x$ is denoted $\mathrm{E}(Y|X=x)$ and is computed as
+  
+  <div class="box">
+  $$\mathrm{E}(Y|X=x) = \left\{
+  \begin{array}{ll}
+  \sum_y y f_{Y|X}(y|x) & \text{if } Y \text{ discrete} \\
+  \int y f_{Y|X}(y|x) dy & \text{if } Y \text{ continuous}
+  \end{array}
+  \right.$$
+  </div>
+  
+- $\mathrm{E}(Y|X=x)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = x$**
+
+- We sometimes refer to $\mathrm{E}(Y|X=x)$ as $\mu_{Y|X}$
+
+## Law of iterated expectations
+  
+- The **law of iterated expectations** links unconditional and conditional expectations: 
+
+  <div class="box">
+  $$\mathrm{E}(Y) = \mathrm{E}[\mathrm{E}(Y|X)]$$
+  </div>
+  
+  Inner expectation taken w.r.t. $f_{Y|X}(y|x)$; outer expectation taken w.r.t. $f_{X}(x)$
+
+- In words: the mean of $Y$ is the average of the conditional expectation of $Y$ given $X$, weighted w/ the PMF/PDF of $X$
+
+# Summary
+
+## Summary
+
+- The conditional expectation of $Y$ given $X = x$ is the expectation of $Y$ taken with respect to the conditional distribution of $Y$ given $X = x$
+
+- Unconditional and conditional expectations are linked by the Law of Iterated Expectations
