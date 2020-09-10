@@ -53,15 +53,15 @@ Based on Stock and Watson, ch. 2
 
 ## Conditional expectation
 
-- The **conditional expectation** of $Y$ given $X$ takes the value $x$ is denoted $\mathrm{E}(Y|X=x)$ 
+- The **conditional expectation** of $Y$ given $X$ takes the value $a$ is denoted $\mathrm{E}(Y|X=a)$ 
   
-- $\mathrm{E}(Y|X=x)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = x$**
+- $\mathrm{E}(Y|X=a)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = a$**
 
   <div class="box">
-  $$\mathrm{E}(Y|X=x) = \left\{
+  $$\mathrm{E}(Y|X=a) = \left\{
   \begin{array}{ll}
-  \sum_y y f_{Y|X}(y|x) & \text{if } Y \text{ discrete} \\
-  \int_y y f_{Y|X}(y|x) dy & \text{if } Y \text{ continuous}
+  \sum_y y f_{Y|X}(y|a) & \text{if } Y \text{ discrete} \\
+  \int_y y f_{Y|X}(y|a) dy & \text{if } Y \text{ continuous}
   \end{array}
   \right.$$
   </div>
