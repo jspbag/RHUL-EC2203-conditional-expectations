@@ -41,15 +41,15 @@ Based on Stock and Watson, ch. 2
 
 # Conditional expectations
 
-## Relationships between random variables
+<!-- ## Relationships between random variables -->
 
-- We are often interested in relationships between two (or more) random variables, $X$ and $Y$
+<!-- - We are often interested in relationships between two (or more) random variables, $X$ and $Y$ -->
 
-  - We want to learn the effect of $X$ on $Y$. 
-  
-  - We want to predict $Y$ based on observations on $X$
+<!--   - We want to learn the effect of $X$ on $Y$.  -->
 
-- In both cases, the **expected value of $Y$ conditional on $X$** turns out to be a very useful object
+<!--   - We want to predict $Y$ based on observations on $X$ -->
+
+<!-- - In both cases, the **expected value of $Y$ conditional on $X$** turns out to be a very useful object -->
 
 ## Conditional expectation
 
@@ -59,7 +59,7 @@ Based on Stock and Watson, ch. 2
   $$\mathrm{E}(Y|X=x) = \left\{
   \begin{array}{ll}
   \sum_y y f_{Y|X}(y|x) & \text{if } Y \text{ discrete} \\
-  \int y f_{Y|X}(y|x) dy & \text{if } Y \text{ continuous}
+  \int_y y f_{Y|X}(y|x) dy & \text{if } Y \text{ continuous}
   \end{array}
   \right.$$
   </div>
@@ -86,4 +86,4 @@ Based on Stock and Watson, ch. 2
 
 - The conditional expectation of $Y$ given $X = x$ is the expectation of $Y$ taken with respect to the conditional distribution of $Y$ given $X = x$
 
-- Unconditional and conditional expectations are linked by the Law of Iterated Expectations
+- Unconditional and conditional expectations are linked by the law of iterated expectations
