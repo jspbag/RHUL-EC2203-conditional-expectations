@@ -53,8 +53,10 @@ Based on Stock and Watson, ch. 2
 
 ## Conditional expectation
 
-- The **conditional expectation** of $Y$ given $X$ takes the value $x$ is denoted $\mathrm{E}(Y|X=x)$ and is computed as
+- The **conditional expectation** of $Y$ given $X$ takes the value $x$ is denoted $\mathrm{E}(Y|X=x)$ 
   
+- $\mathrm{E}(Y|X=x)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = x$**
+
   <div class="box">
   $$\mathrm{E}(Y|X=x) = \left\{
   \begin{array}{ll}
@@ -63,10 +65,6 @@ Based on Stock and Watson, ch. 2
   \end{array}
   \right.$$
   </div>
-  
-- $\mathrm{E}(Y|X=x)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = x$**
-
-- We sometimes refer to $\mathrm{E}(Y|X=x)$ as $\mu_{Y|X}$
 
 ## Law of iterated expectations
   
