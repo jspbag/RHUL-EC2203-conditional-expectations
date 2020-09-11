@@ -1,5 +1,5 @@
 ---
-pagetitle: Conditional expectations
+pagetitle: Dependence and covariance
 output: 
   revealjs::revealjs_presentation:
     incremental: false
@@ -27,7 +27,7 @@ output:
 
 <section>
 
-<h1>Conditional expectations</h1>
+<h1>Dependence and covariance</h1>
 
 Based on Stock and Watson, ch. 2
 
@@ -39,49 +39,71 @@ Based on Stock and Watson, ch. 2
 
 </section>
 
-# Conditional expectations
+# Dependence and covariance
 
-<!-- ## Relationships between random variables -->
+## Independence
 
-<!-- - We are often interested in relationships between two (or more) random variables, $X$ and $Y$ -->
+- Two random variables $X$ and $Y$ are **independent** if knowing the value of one provides no information about the value of the other
 
-<!--   - We want to learn the effect of $X$ on $Y$.  -->
-
-<!--   - We want to predict $Y$ based on observations on $X$ -->
-
-<!-- - In both cases, the **expected value of $Y$ conditional on $X$** turns out to be a very useful object -->
-
-## Conditional expectation
-
-- The **conditional expectation** of $Y$ given $X$ takes the value $a$ is denoted $\mathrm{E}(Y|X=a)$ 
-  
-- $\mathrm{E}(Y|X=a)$ is the expectation of $Y$ taken with respect to the **conditional distribution of $Y$ given $X = a$**
+- Formally, $X$ and $Y$ are independent when
 
   <div class="box">
-  $$\mathrm{E}(Y|X=a) = \left\{
-  \begin{array}{ll}
-  \sum_y y f_{Y|X}(y|a) & \text{if } Y \text{ discrete} \\
-  \int_y y f_{Y|X}(y|a) dy & \text{if } Y \text{ continuous}
-  \end{array}
-  \right.$$
+  $$f_{Y|X}(y|x) = f_Y(y),$$
   </div>
 
-## Law of iterated expectations
-  
-- The **law of iterated expectations** links unconditional and conditional expectations: 
+  <!-- a condition which may also be stated as  -->
+
+  <!-- $$f_{XY}(x,y) = f_X(x) f_Y(y)$$ -->
+
+## Mean independence
+
+- $Y$ is **mean independent** of $X$ if the conditional mean of $Y$ is equal to its unconditional mean; that is, if
 
   <div class="box">
-  $$\mathrm{E}(Y) = \mathrm{E}[\mathrm{E}(Y|X)]$$
+  $$\mathrm{E}(Y|X) = \mathrm{E}(Y)$$
+  </div>
+
+- Mean independence is **weaker** than independence;
+
+  that is, independence implies mean independence, but mean independence does not imply independence
+
+<!-- - Mean independence is weaker than indepenence: independence implies mean independence, but mean independence does not imply independence -->
+
+## Covariance
+
+- The **covariance** is a common measure of the extent to which $X$ and $Y$ move together 
+
+  <div class="box">
+  $$\mathrm{cov}(X,Y) = \mathrm{E}[(X - \mu_X)(Y - \mu_Y)]$$
   </div>
   
-  Inner expectation taken w.r.t. $f_{Y|X}(y|x)$; outer expectation taken w.r.t. $f_{X}(x)$
+- We sometimes refer to $\mathrm{cov}(X,Y)$ as $\sigma_{XY}$
 
-- In words: the mean of $Y$ is the average of the conditional expectation of $Y$ given $X$, weighted w/ the PMF/PDF of $X$
+- Zero covariance is weaker than mean independence;
+
+  that is, mean independence implies zero covariance, but zero covariance does not imply mean independence
+
+## Correlation
+
+- The **correlation** is a closely related and **unit-free** measure of the extent to which $X$ and $Y$ move together 
+
+  <div class="box">
+  $$\mathrm{corr}(X,Y) = \frac{\sigma_{XY}}{\sigma_X \sigma_Y}$$
+  </div>
+
+- We sometimes refer to $\mathrm{corr}(X,Y)$ as $\rho_{XY}$
+
 
 # Summary
 
 ## Summary
 
-- The conditional expectation of $Y$ given $X = x$ is the expectation of $Y$ taken with respect to the conditional distribution of $Y$ given $X = x$
+- $X$ and $Y$ are independent if the conditional distributions coincide with the marginal distributions
 
-- Unconditional and conditional expectations are linked by the law of iterated expectations
+- $Y$ is mean independent of $X$ if the conditional mean of $Y$ equal its unconditional mean
+
+- The covariance between $X$ and $Y$ is is a measure of how closely $X$ and $Y$ move together 
+
+- Independence $\Rightarrow$ Mean independence $\Rightarrow$ zero covariance
+
+  Independence $\not \Leftarrow$ Mean independence $\not \Leftarrow$ zero covariance
