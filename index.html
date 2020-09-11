@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Dependence and covariance</title>
+  <title>Conditional expectations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -455,7 +455,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
 <h1>
-Dependence and covariance
+Conditional expectations
 </h1>
 <p>Based on Stock and Watson, ch. 2</p>
 <p><br></p>
@@ -467,57 +467,40 @@ EC2203 | Royal Holloway | 2020/21
 </h3>
 </section>
 </section>
-<section><section id="dependence-and-covariance" class="title-slide slide level1"><h1>Dependence and covariance</h1></section><section id="independence" class="slide level2">
-<h2>Independence</h2>
+<section><section id="conditional-expectations" class="title-slide slide level1"><h1>Conditional expectations</h1><!-- ## Relationships between random variables -->
+<!-- - We are often interested in relationships between two (or more) random variables, $X$ and $Y$ -->
+<!--   - We want to learn the effect of $X$ on $Y$.  -->
+<!--   - We want to predict $Y$ based on observations on $X$ -->
+<!-- - In both cases, the **expected value of $Y$ conditional on $X$** turns out to be a very useful object --></section><section id="conditional-expectation" class="slide level2">
+<h2>Conditional expectation</h2>
 <ul>
-<li><p>Two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if knowing the value of one provides no information about the value of the other</p></li>
-<li><p>Formally, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent when</p>
+<li><p>The <strong>conditional expectation</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> takes the value <span class="math inline">\(a\)</span> is denoted <span class="math inline">\(\mathrm{E}(Y|X=a)\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{E}(Y|X=a)\)</span> is the expectation of <span class="math inline">\(Y\)</span> taken with respect to the <strong>conditional distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = a\)</span></strong></p>
 <div class="box">
-<p><span class="math display">\[f_{Y|X}(y|x) = f_Y(y),\]</span></p>
+<p><span class="math display">\[\mathrm{E}(Y|X=a) = \left\{
+\begin{array}{ll}
+\sum_y y f_{Y|X}(y|a) &amp; \text{if } Y \text{ discrete} \\
+\int_y y f_{Y|X}(y|a) dy &amp; \text{if } Y \text{ continuous}
+\end{array}
+\right.\]</span></p>
+</div></li>
+</ul>
+</section><section id="law-of-iterated-expectations" class="slide level2">
+<h2>Law of iterated expectations</h2>
+<ul>
+<li><p>The <strong>law of iterated expectations</strong> links unconditional and conditional expectations:</p>
+<div class="box">
+<p><span class="math display">\[\mathrm{E}(Y) = \mathrm{E}[\mathrm{E}(Y|X)]\]</span></p>
 </div>
-<!-- a condition which may also be stated as  -->
-<!-- $$f_{XY}(x,y) = f_X(x) f_Y(y)$$ --></li>
-</ul>
-</section><section id="mean-independence" class="slide level2">
-<h2>Mean independence</h2>
-<ul>
-<li><p><span class="math inline">\(Y\)</span> is <strong>mean independent</strong> of <span class="math inline">\(X\)</span> if the conditional mean of <span class="math inline">\(Y\)</span> is equal to its unconditional mean; that is, if</p>
-<div class="box">
-<p><span class="math display">\[\mathrm{E}(Y|X) = \mathrm{E}(Y)\]</span></p>
-</div></li>
-<li><p>Mean independence is <strong>weaker</strong> than independence;</p>
-<p>that is, independence implies mean independence, but mean independence does not imply independence</p></li>
-</ul>
-<!-- - Mean independence is weaker than indepenence: independence implies mean independence, but mean independence does not imply independence -->
-</section><section id="covariance" class="slide level2">
-<h2>Covariance</h2>
-<ul>
-<li><p>The <strong>covariance</strong> is a common measure of the extent to which <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move together</p>
-<div class="box">
-<p><span class="math display">\[\mathrm{cov}(X,Y) = \mathrm{E}[(X - \mu_X)(Y - \mu_Y)]\]</span></p>
-</div></li>
-<li><p>We sometimes refer to <span class="math inline">\(\mathrm{cov}(X,Y)\)</span> as <span class="math inline">\(\sigma_{XY}\)</span></p></li>
-<li><p>Zero covariance is weaker than mean independence;</p>
-<p>that is, mean independence implies zero covariance, but zero covariance does not imply mean independence</p></li>
-</ul>
-</section><section id="correlation" class="slide level2">
-<h2>Correlation</h2>
-<ul>
-<li><p>The <strong>correlation</strong> is a closely related and <strong>unit-free</strong> measure of the extent to which <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move together</p>
-<div class="box">
-<p><span class="math display">\[\mathrm{corr}(X,Y) = \frac{\sigma_{XY}}{\sigma_X \sigma_Y}\]</span></p>
-</div></li>
-<li><p>We sometimes refer to <span class="math inline">\(\mathrm{corr}(X,Y)\)</span> as <span class="math inline">\(\rho_{XY}\)</span></p></li>
+<p>Inner expectation taken w.r.t. <span class="math inline">\(f_{Y|X}(y|x)\)</span>; outer expectation taken w.r.t. <span class="math inline">\(f_{X}(x)\)</span></p></li>
+<li><p>In words: the mean of <span class="math inline">\(Y\)</span> is the average of the conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, weighted w/ the PMF/PDF of <span class="math inline">\(X\)</span></p></li>
 </ul>
 </section></section>
 <section><section id="summary" class="title-slide slide level1"><h1>Summary</h1></section><section id="summary-1" class="slide level2">
 <h2>Summary</h2>
 <ul>
-<li><p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent if the conditional distributions coincide with the marginal distributions</p></li>
-<li><p><span class="math inline">\(Y\)</span> is mean independent of <span class="math inline">\(X\)</span> if the conditional mean of <span class="math inline">\(Y\)</span> equal its unconditional mean</p></li>
-<li><p>The covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is is a measure of how closely <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move together</p></li>
-<li><p>Independence <span class="math inline">\(\Rightarrow\)</span> Mean independence <span class="math inline">\(\Rightarrow\)</span> zero covariance</p>
-<p>Independence <span class="math inline">\(\not \Leftarrow\)</span> Mean independence <span class="math inline">\(\not \Leftarrow\)</span> zero covariance</p></li>
+<li><p>The conditional expectation of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span> is the expectation of <span class="math inline">\(Y\)</span> taken with respect to the conditional distribution of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span></p></li>
+<li><p>Unconditional and conditional expectations are linked by the law of iterated expectations</p></li>
 </ul>
 </section></section>
     </div>
